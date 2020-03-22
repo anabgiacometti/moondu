@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Moondu Soluções
+    </title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:600,300,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.6.6/jquery.fullPage.min.js'></script>
+    <script src="{{ url_for('static', filename='scripts/site.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+
+
+
+</head>
+
+<div id="loader" style="background-color:#f1f2f3; width:100vw; height:100vh; position:fixed; z-index:9999999">
+    <div style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <img src="{{url_for('static', filename='img/loader.gif')}}">
+    </div>
+</div>
+
+<body class="container-expanded bg-degrade">
+
+    {% include 'navbar.html' %} {% include 'sidebar.html' %}
+
+    <div id="menu-links">
+        <p onclick="ChangePage(this, 1)"><a href="#">HOME</a></p>
+        <p onclick="ChangePage(this, 2)"><a href="#">METODOLOGIA</a></p>
+        <p onclick="ChangePage(this, 3)"><a href="#">CLIENTES</a></p>
+        <p onclick="ChangePage(this, 4)"><a href="#">EQUIPE</a></p>
+        <p onclick="ChangePage(this, 5)"><a href="#">BLOG</a></p>
+        <p onclick="ChangePage(this, 6)"><a href="#">CONTATO</a></p>
+        <p onclick="ChangePage(this, 1)"><a href="#">ÁREA DO CLIENTE</a></p>
+        <p>
+            <a href="https://wa.me/55{{contact.whatsapp | replace('(', '') | replace(')', '') | replace(' ', '') | replace('-', '')}}"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://br.linkedin.com/company/{{contact.linkdeIn}}"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/{{contact.instagram}}"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/{{contact.facebook}}"><i class="fab fa-facebook-f"></i></a>
+        </p>
+    </div>
+
+
+    <ul class="list-brands text-center">
+        <li> <a href="https://www.facebook.com/{{contact.facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+        <li> <a href="https://www.instagram.com/{{contact.instagram}}"><i class="fab fa-instagram"></i></a> </li>
+        <li><a href="https://br.linkedin.com/company/{{contact.linkdeIn}}"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://wa.me/55{{contact.whatsapp | replace('(', '') | replace(')', '') | replace(' ', '') | replace('-', '')}}"><i class="fab fa-whatsapp"></i></a></li>
+    </ul>
+
+    <div id="bg" style="position:absolute; width:100vw; height:100vh; top:0; left:0">
+        <div id="fullpage">
+
+            {% block content %} {% endblock %}
+
+        </div>
+    </div>
+
+
+    <footer class="fixed-bottom text-center m-3 small" style="color:white">Moondu.io | Todos os direitos reservados</footer>
+
+</body>
+
+</html>
+
+<script>
+    var $header_top = $('.header-top');
+    var $nav = $('nav');
+    let ActiveSlide = 1;
+
+    $header_top.find('a').on('click', function() {
+        $(this).parent().toggleClass('open-menu');
+    });
+
+    $(document).ready(function() {
+        setTimeout(() => {
+            $("#loader").addClass('d-none')
+        }, 2000);
+    })
+
+    $('#fullpage').fullpage({
+        sectionSelector: '.vertical-scrolling',
+        navigation: false,
+        slidesNavigation: false,
+        controlArrows: false,
+        anchors: ['home', 'metodologia', 'clientes', 'sobre nós', 'notícias', 'contato'],
+        menu: '#menu',
+
+        afterLoad: function(anchorLink, index) {},
+
+        onLeave: function(index, nextIndex, direction) {
+
+            $('#menu').find('li').eq(nextIndex - 1).removeClass("page-inactive")
+            $('#menu').find('li').eq(nextIndex - 1).addClass("page-active")
+
+            $('#menu').find('li').eq(index - 1).addClass("page-inactive")
+            $('#menu').find('li').eq(index - 1).removeClass("page-active")
+
+
+            if (toggle) {
+
+                $('.menu-toggle').toggleClass('on');
+                $('.rotaded').toggleClass('rotaded')
+
+                TweenLite.to(['.page-line', '.page-dot-sm', '.page-dot'], .5, {
+                    backgroundColor: '#ffffff'
+                })
+                TweenLite.to(['.one', '.two', '.three'], .5, {
+                    background: '#ffffff'
+                })
+                TweenLite.to(['.page-number', '.page-text', 'a.navbar-link', 'footer'], .5, {
+                    color: '#ffffff'
+                })
+
+                TweenLite.fromTo(['.navbar-logo.white'], .5, {
+                    opacity: 0
+                }, {
+                    opacity: 1
+                })
+                TweenLite.fromTo(['.navbar-logo.green'], .5, {
+                    opacity: 1
+                }, {
+                    opacity: 0
+                })
+
+                var tl = new TimelineMax();
+                tl.fromTo($("#menu-links"), .5, {
+                    opacity: 1
+                }, {
+                    opacity: 0
+                });
+                tl.to($("#menu-links"), .5, {
+                    display: "none"
+                }).then(function() {
+                    $.fn.fullpage.moveTo(next);
+                });
+
+                toggle = !toggle;
+            }
+
+
+        },
+
+
+
+
+    });
+</script>

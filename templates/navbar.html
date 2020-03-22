@@ -1,0 +1,108 @@
+<nav class="navbar navbar-dark row px-4" style="z-index:9999; height:100px">
+
+    <div class="col-auto">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="navbar-logo white" style="position: absolute; top: 0; margin-top: -36px; max-height:100px">
+        <img src="{{ url_for('static', filename='img/logo_verde.png') }}" class="navbar-logo green" style="position: absolute; top: 0; margin-top: -36px; max-height:100px; opacity:0">
+    </div>
+
+    <div class="col-auto">
+        <div class="row row align-items-end">
+
+            <div class="col-auto">
+                <a href="#" class="roboto font-weight-medium font-18 navbar-link">Area do Cliente</a>
+            </div>
+
+            <div class="col-auto cursor-pointer">
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two" style="width:85%"></div>
+                    <div class="three"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</nav>
+
+<script>
+    var body = $('section.active');
+    var toggleMenu = $('.menu-toggle');
+
+    var listItems = $('ul#menu li');
+
+    var toggle = false;
+
+    toggleMenu.on('click', function() {
+
+        toggle = !toggle;
+
+        $(this).toggleClass('on');
+        $('section.active').toggleClass('rotaded')
+
+        if (toggle) {
+            TweenLite.to(['.page-line', '.page-dot-sm', '.page-dot'], .5, {
+                backgroundColor: '#15B19F'
+            })
+            TweenLite.to(['.one', '.two', '.three'], .5, {
+                background: '#15B19F'
+            })
+            TweenLite.to(['.page-number', '.page-text', 'footer'], .5, {
+                color: '#15B19F'
+            })
+            TweenLite.fromTo(['.navbar-logo.green'], .5, {
+                opacity: 0
+            }, {
+                opacity: 1
+            })
+            TweenLite.fromTo(['.navbar-logo.white'], .5, {
+                opacity: 1
+            }, {
+                opacity: 0
+            })
+
+            var tl = new TimelineMax();
+            tl.fromTo($("#menu-links"), .5, {
+                display: 'block',
+                opacity: 0
+            }, {
+                opacity: 1
+            });
+
+        } else {
+            TweenLite.to(['.page-line', '.page-dot-sm', '.page-dot'], .5, {
+                backgroundColor: '#ffffff'
+            })
+            TweenLite.to(['.one', '.two', '.three'], .5, {
+                background: '#ffffff'
+            })
+            TweenLite.to(['.page-number', '.page-text', 'footer'], .5, {
+                color: '#ffffff'
+            })
+
+            TweenLite.fromTo(['.navbar-logo.white'], .5, {
+                opacity: 0
+            }, {
+                opacity: 1
+            })
+            TweenLite.fromTo(['.navbar-logo.green'], .5, {
+                opacity: 1
+            }, {
+                opacity: 0
+            })
+
+            var tl = new TimelineMax();
+            tl.fromTo($("#menu-links"), .5, {
+                opacity: 1
+            }, {
+                opacity: 0
+            });
+            tl.to($("#menu-links"), .5, {
+                display: "none"
+            });
+
+
+        }
+
+    });
+</script>

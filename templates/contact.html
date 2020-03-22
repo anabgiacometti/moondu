@@ -1,0 +1,55 @@
+<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+
+    <div class="content animated">
+
+        <div class="slider animated">
+
+            <div class="content-text" style="max-width:35vw">
+
+                <h1 class="animated fadeInDown" style="margin-bottom:1rem">
+                    [ Venha tomar um café conosco ... ]
+                </h1>
+
+                <form>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Nome: ">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Telefone: ">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="E-mail: ">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea rows=3 class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Mensagem: "></textarea>
+                    </div>
+
+                    <button type="button" style="z-index:999999999;float:right; padding:10px; margin-top:0" class="button-primary">Enviar
+                    <img style="width:30px;" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}"></button>
+
+                </form>
+
+            </div>
+
+            <div style="width:40vw; margin-left:40vw">
+                {% include 'svg/contact.html' %}
+
+                <div class="px-3 py-5">
+                    <p class="" style="font-weight:200"> <i class="fas fa-phone" style="font-size: .9rem;width: 30px;"></i> <span>{{contact.phone_1}}</span> <span class="ml-2">{{contact.phone_2}}</span> </p>
+                    <p class="" style="font-weight:200"> <i class="fas fa-envelope" style="font-size: .9rem;width: 30px;"></i> {{contact.email}} </p>
+                    <p class="mb-0 pb-0" style="font-weight:200"> <i class="fas fa-map-marker-alt" style="font-size: .9rem;width: 30px;"></i> {{contact.address_1}} </p>
+                    <p class="m-0 p-0" style="font-weight:200;"> <i class="fas fa-map-marker-alt" style="font-size: .9rem;width: 30px;opacity:0"></i> {{contact.address_2}} </p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>

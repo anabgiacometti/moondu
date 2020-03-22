@@ -1,0 +1,74 @@
+<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+
+    <div class="content animated">
+
+        <div class="slider animated">
+
+            <h1 class="animated fadeInDown font-weight-bold" style="text-align: left;">
+                <span class="mr-4" style="color:#e1e1e1">></span><span id="typed-news"></span>
+            </h1>
+
+            <div class="content-text" style="width:90%; display: flex; flex-wrap: wrap; ">
+
+                <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
+
+                    <img src="data:;base64,{{news[0].image}}" style="width:18vw; height:auto">
+
+                    <h6 style="margin-top:10px;margin-bottom:0px">{{news[0].title}}</h6>
+
+                    <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
+
+                    <div style="font-size:.85em">
+                        {% if news[0].text|length
+                        < 200 %} {{ news[0].text| safe}} {% else %} {{ news[0].text [:200]| safe}} [...] {% endif %} </div>
+
+                    </div>
+
+                    <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
+
+                        <img src="data:;base64,{{news[1].image}}" style="width:18vw; height:auto">
+
+                        <h6 style="margin-top:10px;margin-bottom:0px">{{news[1].title}}</h6>
+
+                        <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
+
+                        <div style="font-size:.85em">
+                            {% if news[1].text|length
+                            < 200 %} {{ news[1].text| safe}} {% else %} {{ news[1].text [:200]| safe}} [...] {% endif %} </div>
+
+
+                        </div>
+
+                        <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
+
+                            <img src="data:;base64,{{news[2].image}}" style="width:18vw; height:auto">
+
+                            <h6 style="margin-top:10px;margin-bottom:0px">{{news[2].title}}</h6>
+
+                            <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
+
+                            <div style="font-size:.85em">
+                                {% if news[2].text|length
+                                < 200 %} {{ news[2].text| safe}} {% else %} {{ news[2].text [:200]| safe}} [...] {% endif %} </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                        <button type="button" style="z-index:999999999; position:absolute; bottom:20px; padding:10px; right:150px" class="button-primary">Acesse o Blog
+            <img style="width:40px" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}"></button>
+                    </div>
+                </div>
+
+
+                <script>
+                    var typed = new Typed('#typed-news', {
+                        strings: ["Fique por dentro do que está acontecendo na Moondu"],
+                        typeSpeed: 40,
+                        shuffle: false,
+                        loop: true
+                    });
+                </script>
+</section>

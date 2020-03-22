@@ -1,0 +1,59 @@
+<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+
+    <div class="content animated">
+
+        <div class="slider animated">
+
+            <div class="content-text" style="width:90%; text-align:center">
+
+                <h1 class="animated fadeInDown" style="text-align: left;">
+                    <span class="mr-4" style="color:#e1e1e1">></span><span id="typed"></span>
+                </h1>
+
+                <div class="row justify-content-center mt-3">
+
+                    {% for c in clients %}
+                    <div class="col-auto py-2">
+                        <img class="cli_img" src="data:;base64,{{ c }}" style="border-radius:50%; height:135px; width:135px; padding:10px; opacity:.8">
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        var app = document.getElementById('app');
+
+
+        $(".cli_img").mouseover(function() {
+
+            TweenLite.to($(this), 1, {
+                opacity: '1',
+                borderRadius: '25%'
+            })
+        })
+
+        $(".cli_img").mouseout(function() {
+
+            TweenLite.to($(this), 1, {
+                opacity: '.8',
+                borderRadius: '50%'
+            })
+        })
+
+        var list1 = "{{clients_text}}".split('£')
+
+        var typed = new Typed('#typed', {
+            strings: list1,
+            typeSpeed: 40,
+            shuffle: false,
+            loop: true
+        });
+    </script>
+
+</section>

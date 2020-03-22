@@ -1,0 +1,144 @@
+{% extends 'admin/base.html' %}
+
+<!-- Titulo -->
+{% block title %} Administração Home {% endblock %}
+
+<!-- Conteudo -->
+
+{% block desc %} Home {% endblock %} {% block content %} {% import 'wtf_tinymce/editor.html' as tinymce with context %} {% from "admin/render.html" import ipt_common, ipt_chk, ipt_textarea %}
+
+<div class="uk-section uk-padding-remove-top uk-section-muted" uk-height-viewport="expand: true">
+    <div class="uk-container uk-container-small">
+
+        <form method="POST" id="Imagem" action="{{url_for('AdminNews')}}" enctype="multipart/form-data">
+
+            {{form.csrf_token}}
+
+            <ul uk-tab>
+                <li><a href="#">News #1</a></li>
+                <li><a href="#">News #2</a></li>
+                <li><a href="#">News #3</a></li>
+                <li><a href="#">Ajuda</a>
+                </li>
+            </ul>
+
+            <ul class="uk-switcher uk-margin">
+
+                <li>
+                    <div class="uk-margin">
+                        <label class="uk-form-label">Imagem</label>
+                        <br>
+                        <div uk-form-custom="target: true" class="uk-width-1-1">
+                            <input type="file" name="image_1">
+                            <input class="uk-input uk-form-width-medium uk-width-1-1" type="text" placeholder="Selecione um arquivo" disabled>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form.title_1)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_textarea(form.text_1, 5)}}
+                    </div>
+
+                </li>
+
+
+
+                <li>
+                    <div class="uk-margin">
+                        <label class="uk-form-label">Imagem</label>
+                        <br>
+                        <div uk-form-custom="target: true" class="uk-width-1-1">
+                            <input type="file" name="image_2">
+                            <input class="uk-input uk-form-width-medium uk-width-1-1" type="text" placeholder="Selecione um arquivo" disabled>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form.title_2)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_textarea(form.text_2, 5)}}
+                    </div>
+
+                </li>
+
+
+
+                <li>
+                    <div class="uk-margin">
+                        <label class="uk-form-label">Imagem</label>
+                        <br>
+                        <div uk-form-custom="target: true" class="uk-width-1-1">
+                            <input type="file" name="image_3">
+                            <input class="uk-input uk-form-width-medium uk-width-1-1" type="text" placeholder="Selecione um arquivo" disabled>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form.title_3)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_textarea(form.text_3, 5)}}
+                    </div>
+                </li>
+
+
+
+
+                <li>
+
+                    <div class="uk-inline uk-dark">
+                        <img src="{{ url_for('static', filename='screenshot/home.png') }}" alt="">
+                        <a class="uk-position-absolute uk-transform-center" id="help-title" style="left: 43%; top: 30%" href="#" uk-marker></a>
+                        <a class="uk-position-absolute uk-transform-center" id="help-text" style="left: 47%; top: 48%" href="#" uk-marker></a>
+                        <a class="uk-position-absolute uk-transform-center" id="help-image" style="left: 24%; top: 68%" href="#" uk-marker></a>
+                    </div>
+
+                </li>
+
+
+
+
+            </ul>
+
+            <button class="uk-button uk-button-primary">Salvar</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+    UIkit.util.on('#help-title', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('Título. Tamanho ideal: até 50 caracteres.')
+    });
+
+    UIkit.util.on('#help-text', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('Texto descritivo. Tamanho ideal: até 500 caracteres.')
+    });
+
+    UIkit.util.on('#help-image', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('<p>Saiba mais: abre o vídeo. Caso não tenha um image vinculado ao slider, o botão não será\
+        apresentado.</p> <p> O link do image deve ser obtivo atraves dos seguintes passos:</p>\
+        <p>1 - Escolha o image desejado em <a href="https://youtube.com.br">www.youtube.com.br</a>.</p>\
+        <p>2 - Clique no vídeo com o botão direito do mouse, e em seguida, "Copiar código de incorporação"</p>\
+        <p>3 - Abre o bloco de notas e cole o código. O código deverá começar assim: </p>\
+        <p class="uk-padding" style="background-color:#f1f1f1; font-size:.8rem">\
+            iframe width="768" height="480" src="https://www.youtube.com/embed/Kok4-aVdyT4?list=RDKok4-aVdyT4" frameborder="0" (...)</p>\
+        <p>4 - Copie o link logo após <b>"src"</b>, a partir do "https". Este é o link que deverá ser inserido para a correta exibição do image.')
+    });
+</script>
+
+
+{{ super() }} {{ tinymce.init_wtf_tinymce(default_content_css='css/tinymce.css') }} {% endblock %}

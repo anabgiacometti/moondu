@@ -1,0 +1,38 @@
+<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+
+    <div class="content animated">
+
+        <div class="slider animated">
+
+            <div class="content-text">
+
+                <h1 class="animated fadeInDown" style="margin-bottom:1rem">
+                    {{ about.title }}
+                </h1>
+
+                <div id="aboutvideo" class="invisible video animated fadeInRightBig">
+                    <div class="home-video-close" onclick="ShowAboutText()">
+                        Fechar <i class="fas fa-times"></i>
+                    </div>
+                    <iframe class="home-video" src="{{ about.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div id="abouttext" class="animated">
+                    {{ about.text | safe }}
+                </div>
+
+                {% if about.video != None and about.video != "" %}
+                <button type="button" onclick="ShowAboutVideo()" id="button-aboutvideo" class="button-primary animated fadeInDown delay-1s">Saiba Mais
+                    <i class="fas fa-play"></i>
+                </button> {% endif %}
+
+            </div>
+
+            <div style="position:absolute;width:100%;text-align: right;z-index:-1;">
+                {% include 'svg/about.html' %}
+            </div>
+        </div>
+
+    </div>
+
+</section>

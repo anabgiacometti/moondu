@@ -1,0 +1,87 @@
+<div class="page-line mt-3">
+</div>
+
+<ul id="menu" class="page-dots mt-3">
+
+    <li class="page-dot-sm page-active">
+        <span class="page-number" onclick="ChangePage(this, 1)">01</span>
+        <span class="page-text">Home</span>
+    </li>
+
+    <li class="page-dot page-inactive">
+        <span class="page-number" onclick="ChangePage(this, 2)">02</span>
+        <span class="page-text">Metodologia</span>
+    </li>
+
+    <li class="page-dot page-inactive">
+        <span class="page-number" onclick="ChangePage(this, 3)">03</span>
+        <span class="page-text">Clientes</span>
+    </li>
+
+    <li class="page-dot page-inactive">
+        <span class="page-number" onclick="ChangePage(this, 4)">04</span>
+        <span class="page-text">Sobre Nós</span>
+    </li>
+
+    <li class="page-dot page-inactive">
+        <span class="page-number" onclick="ChangePage(this, 5)">05</span>
+        <span class="page-text">Notícias</span>
+    </li>
+
+    <li class="page-dot page-inactive">
+        <span class="page-number" onclick="ChangePage(this, 6)">06</span>
+        <span class="page-text">Contato</span>
+    </li>
+
+</ul>
+
+<script>
+    let currentPage = 1;
+
+    function ChangePage(element, next) {
+
+        if (toggle) {
+
+            $('.menu-toggle').toggleClass('on');
+            $('.rotaded').toggleClass('rotaded')
+
+            TweenLite.to(['.page-line', '.page-dot-sm', '.page-dot'], .5, {
+                backgroundColor: '#ffffff'
+            })
+            TweenLite.to(['.one', '.two', '.three'], .5, {
+                background: '#ffffff'
+            })
+            TweenLite.to(['.page-number', '.page-text', 'a.navbar-link', 'footer'], .5, {
+                color: '#ffffff'
+            })
+
+            TweenLite.fromTo(['.navbar-logo.white'], .5, {
+                opacity: 0
+            }, {
+                opacity: 1
+            })
+            TweenLite.fromTo(['.navbar-logo.green'], .5, {
+                opacity: 1
+            }, {
+                opacity: 0
+            })
+
+            var tl = new TimelineMax();
+            tl.fromTo($("#menu-links"), .5, {
+                opacity: 1
+            }, {
+                opacity: 0
+            });
+            tl.to($("#menu-links"), .5, {
+                display: "none"
+            })
+
+            toggle = !toggle;
+        }
+
+        $.fn.fullpage.moveTo(next);
+
+
+
+    }
+</script>

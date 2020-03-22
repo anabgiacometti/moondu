@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Moondu Soluções - {% block title %} {% endblock %}
+    </title>
+
+    <!-- Site Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.2/dist/css/uikit.min.css" />
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Jquery Mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.2/dist/js/uikit-icons.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            if ("{{message}}" != "" && "{{message}}" != undefined && "{{message}}" != "None") {
+                UIkit.notification({
+                    message: '{{message}}',
+                    status: 'success',
+                    pos: 'bottom-right',
+                    timeout: 5000
+                });
+            }
+
+            $(".mask_value").mask('000.000.000.000.000,00', {
+                reverse: true
+            });
+
+            $(".mask_phone").mask('(00) 00000-0000');
+
+            $(".mask_number").keydown(function(e) {
+                var key = e.charCode || e.keyCode || 0;
+                // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+                // home, end, period, and numpad decimal
+                return (
+                    key == 8 ||
+                    key == 9 ||
+                    key == 13 ||
+                    key == 46 ||
+                    key == 110 ||
+                    key == 190 ||
+                    (key >= 35 && key <= 40) ||
+                    (key >= 48 && key <= 57) ||
+                    (key >= 96 && key <= 105));
+            });
+
+        });
+    </script>
+
+
+</head>
+
+<body class="uk-background-muted" uk-height-viewport="expand: true">
+
+    <nav class="uk-container-expand">
+
+        <nav class="uk-navbar uk-light" style="background: rgb(30, 118, 140);
+        background: linear-gradient(90deg, rgba(30, 118, 140, 1) 0%, rgba(20, 187, 161, 1) 100%);">
+
+            <div class="uk-navbar-left">
+                <label class="uk-navbar-item uk-logo" style="color:white">Moondu Soluções - {% block desc %} {% endblock %}
+                </label>
+            </div>
+        </nav>
+    </nav>
+
+    <!-- Conteudo -->
+    {% block content %} {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+{% extends 'admin/base.html' %}
+
+<!-- Titulo -->
+{% block title %} Administração Clientes {% endblock %}
+
+<!-- Conteudo -->
+
+{% block desc %} Clientes {% endblock %} {% block content %} {% import 'wtf_tinymce/editor.html' as tinymce with context %} {% from "admin/render.html" import ipt_common, ipt_chk, ipt_textarea %}
+
+<div class="uk-section uk-padding-remove-top uk-section-muted" uk-height-viewport="expand: true">
+    <div class="uk-container uk-container-small uk-margin-top">
+
+
+        <ul uk-tab>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Textos</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+
+            <li>
+                <div class="uk-child-width-1-5" uk-grid uk-grid uk-height-match="target: > div > .uk-card; row: false">
+
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-body">
+                                <form method="POST" id="Imagem" class="total-center" style="cursor: pointer;" action="{{url_for('AdminClients')}}" enctype="multipart/form-data">
+
+                                    {{form.csrf_token}}
+
+                                    <div uk-form-custom>
+                                        <input type="file" name="logo">
+                                        <a class="plus" tabindex="-1"><span uk-icon="icon: plus; ratio:2"></a>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for i in images %}
+
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top" style=" margin-left: auto; margin-right: auto;">
+                                <img src="data:;base64,{{ i.image }}" alt="" style="padding:1.5rem;">
+                                <div class="card-hover" onclick="Delete({{i.id}})">
+                                    <a uk-icon="icon: trash; ratio:2"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </li>
+
+            <li>
+                <form action="{{url_for('AdminClients')}}" method="POST">
+
+                    {{form_phrase.csrf_token}}
+
+                    <div class="uk-margin">
+                        {{ipt_common(form_phrase.text1)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form_phrase.text2)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form_phrase.text3)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form_phrase.text4)}}
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ipt_common(form_phrase.text5)}}
+                    </div>
+
+                    <button class="uk-button uk-button-primary">Salvar</button>
+
+                    <input type="hidden" name="id" value="1">
+
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $("input[type='file']").change(function() {
+        $("#Imagem").submit()
+    })
+
+    function Delete(id) {
+
+        UIkit.modal.confirm('Posso deletar este cliente?').then(function() {
+            window.location.href = "/delete-client/" + id
+        }, function() {});
+
+    }
+
+    UIkit.util.on('#help-title', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('Título. Tamanho ideal: até 50 caracteres.')
+    });
+
+    UIkit.util.on('#help-text', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('Texto descritivo. Tamanho ideal: até 500 caracteres.')
+    });
+
+    UIkit.util.on('#help-video', 'click', function(e) {
+        e.preventDefault();
+        e.target.blur();
+        UIkit.modal.alert('<p>Saiba mais: abre o vídeo. Caso não tenha um video vinculado ao slider, o botão não será\
+        apresentado.</p> <p> O link do video deve ser obtivo atraves dos seguintes passos:</p>\
+        <p>1 - Escolha o video desejado em <a href="https://youtube.com.br">www.youtube.com.br</a>.</p>\
+        <p>2 - Clique no vídeo com o botão direito do mouse, e em seguida, "Copiar código de incorporação"</p>\
+        <p>3 - Abre o bloco de notas e cole o código. O código deverá começar assim: </p>\
+        <p class="uk-padding" style="background-color:#f1f1f1; font-size:.8rem">\
+            iframe width="768" height="480" src="https://www.youtube.com/embed/Kok4-aVdyT4?list=RDKok4-aVdyT4" frameborder="0" (...)</p>\
+        <p>4 - Copie o link logo após <b>"src"</b>, a partir do "https". Este é o link que deverá ser inserido para a correta exibição do video.')
+    });
+</script>
+
+
+{{ super() }} {{ tinymce.init_wtf_tinymce(default_content_css='css/tinymce.css') }} {% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+<!-- Conteudo -->
+
+{% block content %}
+
+<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+
+    <div class="content animated">
+
+        {% if sliders_home[0].active %}
+
+        <div class="slider animated">
+
+            <div class="content-text">
+
+                <h1 class="animated fadeInDown">
+                    {{ sliders_home[0].title }}
+                </h1>
+
+                <div class="invisible video animated fadeInRightBig">
+                    <div class="home-video-close" onclick="ShowText()">
+                        Fechar <i class="fas fa-times"></i>
+                    </div>
+                    <iframe class="home-video" src="{{ sliders_home[0].video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="animated fadeInDown delay-0-5s video-text">
+                    {{ sliders_home[0].text | safe }}
+                </div>
+
+                {% if sliders_home[0].video != None and sliders_home[0].video != "" %}
+                <button type="button" onclick="ShowVideo()" class="button-primary animated delay-1s">Saiba Mais
+                    <i class="fas fa-play"></i>
+                </button> {% endif %}
+
+            </div>
+
+            <div style="position:absolute; width:100%; text-align: right; z-index:-1">
+                {% include 'svg/home1.html' %}
+            </div>
+
+        </div>
+
+        {% endif %} {% if sliders_home[1].active == true %}
+
+        <div class="slider {{ 'invisible' if sliders_home[0].active else '' }} animated">
+
+            <div class="content-text">
+
+                <h1 class="animated">
+                    {{ sliders_home[1].title }}
+                </h1>
+
+                <div class="invisible video animated">
+                    <div class="home-video-close" onclick="ShowText()">
+                        Fechar <i class="fas fa-times"></i>
+                    </div>
+                    <iframe class="home-video" src="{{ sliders_home[1].video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="animated delay-0-5s video-text">
+                    {{ sliders_home[1].text | safe }}
+                </div>
+
+                {% if sliders_home[1].video != None %}
+                <button type="button" onclick="ShowVideo()" class="button-primary animated delay-1s">Saiba Mais
+                    <i class="fas fa-play"></i>
+                </button> {% endif %}
+
+            </div>
+
+            <div style="position:absolute; width:100%; text-align: right; z-index:-1">
+                {% include 'svg/home2.html' %}
+            </div>
+
+        </div>
+
+        {% endif %} {% if sliders_home[2].active == true %}
+
+        <div class="slider {{ 'invisible' if sliders_home[0].active or sliders_home[1].active else '' }} animated">
+
+            <div class="content-text">
+
+                <h1 class="animated">
+                    {{ sliders_home[2].title }}
+                </h1>
+
+                <div class="invisible video animated">
+                    <div class="home-video-close" onclick="ShowText()">
+                        Fechar <i class="fas fa-times"></i>
+                    </div>
+                    <iframe class="home-video" src="{{ sliders_home[2].video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="animated delay-0-5s video-text">
+                    {{ sliders_home[2].text | safe }}
+                </div>
+
+                {% if sliders_home[2].video != None %}
+                <button type="button" onclick="ShowVideo()" class="button-primary animated delay-1s">Saiba Mais
+                    <i class="fas fa-play"></i>
+                </button> {% endif %}
+
+            </div>
+
+            <div style="position:absolute; width:100%; text-align: right; z-index:-1">
+                {% include 'svg/home3.html' %}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+
+        <ul class="slider-dots">
+
+            {% for s in sliders_home | selectattr("active", "equalto", true) %}
+            <li class="slider-dot {{'inactive' if loop.index > 1}}" onclick="ShowSlide({{loop.index}})"></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</section>
+
+{% include 'method.html' %} {% include 'clients.html' %} {% include 'about.html' %} {% include 'news.html' %} {% include 'contact.html' %} {% endblock %}
