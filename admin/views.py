@@ -309,6 +309,7 @@ def AdminClients():
 
     else:
         if phrase1 != None:
+<<<<<<< HEAD
 	    form_phrase.text1.data = phrase1.text
         if phrase2 != None:
             form_phrase.text2.data = phrase2.text
@@ -316,6 +317,15 @@ def AdminClients():
 	    form_phrase.text3.data = phrase3.text
         if phrase4 != None:
 	    form_phrase.text4.data = phrase4.text
+=======
+            form_phrase.text1.data = phrase1.text
+        if phrase2 != None:
+            form_phrase.text2.data = phrase2.text
+        if phrase3 != None:
+            form_phrase.text3.data = phrase3.text
+        if phrase4 != None:
+            form_phrase.text4.data = phrase4.text
+>>>>>>> 046f225aff14bc752a9f181ff62aedd188af1ae6
         if phrase5 != None:
             form_phrase.text5.data = phrase5.text
 
