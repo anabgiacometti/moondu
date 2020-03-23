@@ -308,11 +308,16 @@ def AdminClients():
         return redirect(url_for('AdminClients'))
 
     else:
-        form_phrase.text1.data = phrase1.text
-        form_phrase.text2.data = phrase2.text
-        form_phrase.text3.data = phrase3.text
-        form_phrase.text4.data = phrase4.text
-        form_phrase.text5.data = phrase5.text
+        if phrase1 != None:
+            form_phrase.text1.data = phrase1.text
+        if phrase2 != None:
+            form_phrase.text2.data = phrase2.text
+        if phrase3 != None:
+            form_phrase.text3.data = phrase3.text
+        if phrase4 != None:
+            form_phrase.text4.data = phrase4.text
+        if phrase5 != None:
+            form_phrase.text5.data = phrase5.text
 
     return render_template('admin/clients.html', form=form, form_phrase=form_phrase, images=images)
     
