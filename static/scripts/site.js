@@ -1,15 +1,6 @@
 $(document).ready(function() {
 
-    TweenLite.set(".aboutsvg", {
-        stroke: 'white',
-        strokeDasharray: 60,
-    });
-
-    TweenLite.to(".aboutsvg", 5, {
-        strokeDasharray: 70,
-        repeat: -1,
-        yoyo: true
-    });
+   
 
 })
 

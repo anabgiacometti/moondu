@@ -4,61 +4,64 @@
 
         <div class="slider animated">
 
-            <h1 class="animated fadeInDown font-weight-bold" style="text-align: left;">
-                <span class="mr-4" style="color:#e1e1e1">></span><span id="typed-news"></span>
+            <h1 class="animated fadeInDown" 
+            style="font-weight:800;margin-left: 5%;text-align: center;width: 63vw;margin-top: -6%;font-size: 2.7rem;position:absolute;">
+                <span class="" style="color:#e1e1e1">
+                    <span style="position:absolute;left:0; margin-right:10px">[</span>
+                    <span style="position:absolute;right:0; margin-left:10px">]</span>
+                </span><span id="typed-news"></span>
             </h1>
 
-            <div class="content-text" style="width:90%; display: flex; flex-wrap: wrap; ">
+            <div class="content-text" style="width:90%; display: flex; flex-wrap: wrap; margin-top:4%">
 
                 <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
 
-                    <img src="data:;base64,{{news[0].image}}" style="width:18vw; height:auto">
+                    <img src="data:;base64,{{news[0].image}}" style="width: 233px;height: 154px;">
 
-                    <h6 style="margin-top:10px;margin-bottom:0px">{{news[0].title}}</h6>
+                    <h6 style="margin-top:10px;margin-bottom:0px; width: 233px; font-weight:600">{{news[0].title}}</h6>
 
-                    <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
+                    <div style="width:6vw; background-color:white; height:4px; margin-top:4px; margin-bottom: 15px;"></div>
 
-                    <div style="font-size:.85em">
+                    <div style="font-size:.85em; width: 233px;">
                         {% if news[0].text|length
-                        < 200 %} {{ news[0].text| safe}} {% else %} {{ news[0].text [:200]| safe}} [...] {% endif %} </div>
+                        < 100 %} {{ news[0].text| safe}} {% else %} {{ news[0].text [:100]| safe}} [...] {% endif %} </div>
 
                     </div>
 
                     <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
 
-                        <img src="data:;base64,{{news[1].image}}" style="width:18vw; height:auto">
+                        <img src="data:;base64,{{news[1].image}}" style="width: 233px;height: 154px;">
 
-                        <h6 style="margin-top:10px;margin-bottom:0px">{{news[1].title}}</h6>
+                    <h6 style="margin-top:10px;margin-bottom:0px; width: 233px; font-weight:600">{{news[1].title}}</h6>
 
-                        <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
+                    <div style="width:6vw; background-color:white; height:4px; margin-top:4px; margin-bottom: 15px;"></div>
 
-                        <div style="font-size:.85em">
-                            {% if news[1].text|length
-                            < 200 %} {{ news[1].text| safe}} {% else %} {{ news[1].text [:200]| safe}} [...] {% endif %} </div>
+                    <div style="font-size:.85em; width: 233px;">
+                        {% if news[1].text|length
+                        < 100 %} {{ news[1].text| safe}} {% else %} {{ news[1].text [:100]| safe}} [...] {% endif %} </div>
 
+                    </div>
 
-                        </div>
 
                         <div style="height:100%; width:18vw; margin-left: 40px; margin-right: 40px; margin-top: 20px;">
 
-                            <img src="data:;base64,{{news[2].image}}" style="width:18vw; height:auto">
+                            <img src="data:;base64,{{news[2].image}}" style="width: 233px;height: 154px;">
 
-                            <h6 style="margin-top:10px;margin-bottom:0px">{{news[2].title}}</h6>
-
-                            <div style="width:6vw; background-color:white; height:4px; margin-top:4px"></div>
-
-                            <div style="font-size:.85em">
+                            <h6 style="margin-top:10px;margin-bottom:0px; width: 233px; font-weight:600">{{news[2].title}}</h6>
+        
+                            <div style="width:6vw; background-color:white; height:4px; margin-top:4px; margin-bottom: 15px;"></div>
+        
+                            <div style="font-size:.85em; width: 233px;">
                                 {% if news[2].text|length
-                                < 200 %} {{ news[2].text| safe}} {% else %} {{ news[2].text [:200]| safe}} [...] {% endif %} </div>
-
-
-
+                                < 100 %} {{ news[2].text| safe}} {% else %} {{ news[2].text [:100]| safe}} [...] {% endif %} </div>
+        
                             </div>
-
+        
                         </div>
 
-                        <button type="button" style="z-index:999999999; position:absolute; bottom:20px; padding:10px; right:150px" class="button-primary">Acesse o Blog
-            <img style="width:40px" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}"></button>
+                        <button type="button" style="z-index:999999999;position:absolute;bottom: 10%;right: 35vh;" class="button-primary">Acesse o Blog
+                            <img style="width:30px" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}">
+                        </button>
                     </div>
                 </div>
 

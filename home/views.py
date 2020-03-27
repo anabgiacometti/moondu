@@ -6,7 +6,7 @@ from base64 import b64encode
 @app.route('/')
 def Home():   
 
-    sliders = SlidersHome.query.order_by(SlidersHome.id).all();
+    sliders = SlidersHome.query.order_by(SlidersHome.id).filter(SlidersHome.active == True).all();
     about = AboutUs.query.filter(AboutUs.id == 1).first();
     all_clients = Client.query.all()
     clients_text_all = ClientPhrases.query.all()

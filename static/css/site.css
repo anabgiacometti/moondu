@@ -149,6 +149,15 @@ a.navbar-link:hover {
     cursor: pointer;
 }
 
+.section{
+    background-size: 100vw 100vh !important;
+}
+
+::placeholder{
+    color: white !important; 
+    font-weight:600 !important
+}
+
 .page-active>.page-text {
     margin-top: -8px;
     margin-left: 25px;
@@ -157,6 +166,7 @@ a.navbar-link:hover {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: .75em;
+    white-space: nowrap;
     cursor: pointer;
     transition: all 1s;
 }
@@ -226,7 +236,7 @@ a.navbar-link:hover {
 .content-text>h1 {
     color: white;
     font-size: 3rem;
-    font-weight: 600 !important;
+    font-weight: 800 !important;
     z-index: 0
 }
 
@@ -374,7 +384,7 @@ i {
 }
 
 .slider-dots {
-    margin-left: 15vw;
+    margin-left: 30vw;
     margin-top: 66vh;
 }
 

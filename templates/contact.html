@@ -13,36 +13,36 @@
                 <form>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Nome: ">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Nome: ">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Telefone: ">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Telefone: ">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="E-mail: ">
+                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="E-mail: ">
                     </div>
 
                     <div class="form-group">
-                        <textarea rows=3 class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white" placeholder="Mensagem: "></textarea>
+                        <textarea rows=3 class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Mensagem: "></textarea>
                     </div>
 
-                    <button type="button" style="z-index:999999999;float:right; padding:10px; margin-top:0" class="button-primary">Enviar
+                    <button type="button" style="z-index:999999999;float:right; margin-top:0" class="button-primary">Enviar
                     <img style="width:30px;" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}"></button>
 
                 </form>
 
             </div>
 
-            <div style="width:40vw; margin-left:40vw">
+            <div style="width:40vw;position: absolute;right: 7vh;top: -2vw;"">
                 {% include 'svg/contact.html' %}
 
-                <div class="px-3 py-5">
-                    <p class="" style="font-weight:200"> <i class="fas fa-phone" style="font-size: .9rem;width: 30px;"></i> <span>{{contact.phone_1}}</span> <span class="ml-2">{{contact.phone_2}}</span> </p>
-                    <p class="" style="font-weight:200"> <i class="fas fa-envelope" style="font-size: .9rem;width: 30px;"></i> {{contact.email}} </p>
-                    <p class="mb-0 pb-0" style="font-weight:200"> <i class="fas fa-map-marker-alt" style="font-size: .9rem;width: 30px;"></i> {{contact.address_1}} </p>
-                    <p class="m-0 p-0" style="font-weight:200;"> <i class="fas fa-map-marker-alt" style="font-size: .9rem;width: 30px;opacity:0"></i> {{contact.address_2}} </p>
+                <div class="px-3 mt-4">
+                    <p class="mb-2" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-phone" style="width: 30px;"></i> <span>{{contact.phone_1}}</span> <span class="ml-2">{{contact.phone_2}}</span> </p>
+                    <p class="mb-2" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-envelope" style="width: 30px;"></i> {{contact.email}} </p>
+                    <p class="mb-1 pb-0" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-map-marker-alt" style="width: 30px;"></i> {{contact.address_1}} </p>
+                    <p class="m-0 p-0" style="font-weight:200;;font-weight:200; font-size:1.4rem"> <i class="fas fa-map-marker-alt" style="width: 30px;opacity:0"></i> {{contact.address_2}} </p>
                 </div>
 
             </div>
