@@ -5,13 +5,329 @@
         <div class="slider animated">
 
             <div class="content-text">
+            
+            <img src="{{url_for('static', filename='img/cn.png')}}" id="cp"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenCP()"
+            >
 
-                ++++ METODOLOGIA ++++
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="cn_b">
+
+            <div id="cn_t" style="position:absolute;width: 28vw;top: -2vh;left: 8vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Compreender Necessidades</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+            
+            <img src="{{url_for('static', filename='img/ds.png')}}" id="ds"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenDS()"
+            >
+            
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="ds_b">
+
+            <div id="ds_t" style="position:absolute;width: 28vw;top: -10vh;left: 32vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Definir Soluções</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+            
+            <img src="{{url_for('static', filename='img/ep.png')}}" id="ep"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenEP()"
+            >
+            
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="ep_b">
+
+            <div id="ep_t" style="position:absolute;width: 28vw;top: -10vh;left: 41vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Escopo de Projeto</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+            
+            <img src="{{url_for('static', filename='img/se.png')}}" id="se"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenSE()"
+            >
+            
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="se_b">
+
+            <div id="se_t" style="position:absolute;width: 28vw;top: 10vh;left: 1vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Suporte Pós Entrega</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+
+            <img src="{{url_for('static', filename='img/ec.png')}}" id="ec"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenEC()"
+            >
+            
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="ec_b">
+
+            <div id="ec_t" style="position:absolute;width: 28vw;top: 9vh;left: 34vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Entrega ao Cliente</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+
+            <img src="{{url_for('static', filename='img/dv.png')}}" id="dv"
+            style="z-index:99; cursor:pointer"
+            onclick="OpenDV()"
+            >
+            
+            <img src="{{url_for('static', filename='img/cn_borda.png')}}" id="dv_b">
+
+            <div id="dv_t" style="position:absolute;width: 28vw;top: 12vh;left: 46vw;opacity:0;text-align:center;height: 65vh;">
+                <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">Desenvolvimento</h1>
+                    <span style="color:white;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+                </div>
+            </div>
+
 
             </div>
 
         </div>
 
     </div>
+
+<script>
+
+    var open = "";
+    
+    $(document).ready(function(){
+        TweenLite.set($("#cp"), { position:'absolute', width: '21vw', top: '3vh', left: '9vw', opacity:1 });        
+        TweenLite.set($("#cn_b"), { position:'absolute', width: '21vw', top: '3vh', left: '9vw', opacity:0 });        
+        TweenLite.set($("#cn_t"), { opacity:0 });        
+
+        TweenLite.set($("#ds"), { position:'absolute', width: '16vw', top: '-10vh', left: '27vw' });  
+        TweenLite.set($("#ds_b"), { position:'absolute', width: '16vw', top: '-10vh', left: '27vw', opacity:0 });        
+        TweenLite.set($("#ds_t"), { opacity:0 });    
+
+        TweenLite.set($("#ep"), { position:'absolute', width: '22vw', top: '0vh', left: '41vw' });   
+        TweenLite.set($("#ep_b"), { position:'absolute', width: '22vw', top: '0vh', left: '41vw', opacity:0 });        
+        TweenLite.set($("#ep_t"), { opacity:0 });    
+
+        TweenLite.set($("#se"), { position:'absolute', width: '17vw', top: '44vh', left: '10vw' });  
+        TweenLite.set($("#se_b"), { position:'absolute', width: '17vw', top: '44vh', left: '10vw', opacity:0 });        
+        TweenLite.set($("#se_t"), { opacity:0 });   
+
+        TweenLite.set($("#ec"), { position:'absolute', width: '17vw', top: '22vh', left: '26vw' });      
+        TweenLite.set($("#ec_b"), { position:'absolute', width: '17vw', top: '22vh', left: '26vw', opacity:0 });        
+        TweenLite.set($("#ec_t"), { opacity:0 });  
+
+        TweenLite.set($("#dv"), { position:'absolute', width: '18vw', top: '41vh', left: '42vw' });   
+        TweenLite.set($("#dv_b"), { position:'absolute', width: '18vw', top: '41vh', left: '42vw', opacity:0 });        
+        TweenLite.set($("#dv_t"), { opacity:0 });       
+    })
+
+    
+    function OpenCP(){
+        
+        TweenLite.to($("#cp"), 1, { position:'absolute', width: '36vw', top: '-2vh', left: '4vw', opacity:0 });    
+        TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '36vw', top: '-2vh', left: '4vw', opacity:1 });    
+        TweenLite.fromTo($("#cn_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });       
+
+        TweenLite.to($("#ds"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '35vw', opacity:1 });  
+        TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '35vw', opacity:0 });    
+        TweenLite.to($("#ds_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+        TweenLite.to($("#ep"), 1, { position:'absolute', width: '16vw', top: '4vh', left: '52vw', opacity:1 });   
+        TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '16vw', top: '4vh', left: '52vw', opacity:0 });    
+        TweenLite.to($("#ep_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });
+
+        TweenLite.to($("#se"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '-7vw', opacity:1 });   
+        TweenLite.to($("#se_b"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '-7vw', opacity:0 });    
+        TweenLite.to($("#se_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+     
+        TweenLite.to($("#ec"), 1, { position:'absolute', width: '16vw', top: '22vh', left: '38vw', opacity:1 }); 
+        TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '16vw', top: '22vh', left: '38vw', opacity:0 });    
+        TweenLite.to($("#ec_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+       
+        TweenLite.to($("#dv"), 1, { position:'absolute', width: '16vw', top: '41vh', left: '51vw', opacity:1 });   
+        TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '16vw', top: '41vh', left: '51vw', opacity:0 });    
+        TweenLite.to($("#dv_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+       
+    }
+
+    
+    function OpenDS(){
+        
+        TweenLite.to($("#ds"), 1, { position:'absolute', width: '36vw', top: '-10vh', left: '28vw', opacity:0 });        
+        TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '36vw', top: '-10vh', left: '28vw', opacity:1 });    
+        TweenLite.fromTo($("#ds_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });   
+
+        TweenLite.to($("#cp"), 1, { position:'absolute', width: '16vw', top: '1vh', left: '9vw', opacity:1 });    
+        TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '16vw', top: '1vh', left: '9vw', opacity:0 });  
+        TweenLite.to($("#cn_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+        
+        TweenLite.to($("#ep"), 1, { position:'absolute', width: '16vw', top: '17vh', left: '65vw', opacity:1 });        
+        TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '16vw', top: '17vh', left: '65vw', opacity:0 });    
+        TweenLite.to($("#ep_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });
+
+        TweenLite.to($("#se"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '1vw', opacity:1 });     
+        TweenLite.to($("#se_b"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '1vw', opacity:0 });    
+        TweenLite.to($("#se_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });
+
+        TweenLite.to($("#ec"), 1, { position:'absolute', width: '16vw', top: '32vh', left: '17vw', opacity:1 });   
+        TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '16vw', top: '32vh', left: '17vw', opacity:0 });    
+        TweenLite.to($("#ec_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });
+
+        TweenLite.to($("#dv"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '59vw', opacity:1 }); 
+        TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '59vw', opacity:0 });    
+        TweenLite.to($("#dv_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });
+
+    }
+    
+    function OpenEP(){
+    
+    TweenLite.to($("#ep"), 1, { position:'absolute', width: '36vw', top: '-10vh', left: '37vw', opacity:0 });        
+    TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '36vw', top: '-10vh', left: '37vw', opacity:1 });    
+    TweenLite.fromTo($("#ep_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });   
+    
+    TweenLite.to($("#cp"), 1, { position:'absolute', width: '16vw', top: '1vh', left: '9vw', opacity:1 });    
+    TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '16vw', top: '1vh', left: '9vw', opacity:0 });    
+    TweenLite.to($("#cn_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ds"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '24vw', opacity:1 }); 
+    TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '24vw', opacity:0 });    
+    TweenLite.to($("#ds_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#se"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '1vw', opacity:1 }); 
+    TweenLite.to($("#se_b"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '1vw', opacity:0 });    
+    TweenLite.to($("#se_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ec"), 1, { position:'absolute', width: '16vw', top: '32vh', left: '17vw', opacity:1 });  
+    TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '16vw', top: '32vh', left: '17vw', opacity:0 });    
+    TweenLite.to($("#ec_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+          
+    TweenLite.to($("#dv"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '64vw', opacity:1 });  
+    TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '64vw', opacity:0 });    
+    TweenLite.to($("#dv_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+  
+}
+
+
+
+function OpenSE(){
+    
+    TweenLite.to($("#se"), 1, { position:'absolute', width: '36vw', top: '10vh', left: '-3vw', opacity:0 }); 
+    TweenLite.to($("#se_b"), 1, { position:'absolute', width: '36vw', top: '10vh', left: '-3vw', opacity:1 });    
+    TweenLite.fromTo($("#se_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });   
+           
+    TweenLite.to($("#ep"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '50vw', opacity:1 });        
+    TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '50vw', opacity:0 });    
+    TweenLite.to($("#ep_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+    
+    TweenLite.to($("#cp"), 1, { position:'absolute', width: '16vw', top: '-14vh', left: '23vw', opacity:1 });    
+    TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '16vw', top: '-14vh', left: '23vw', opacity:0 });    
+    TweenLite.to($("#cn_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ds"), 1, { position:'absolute', width: '16vw', top: '16vh', left: '37vw', opacity:1 }); 
+    TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '16vw', top: '16vh', left: '37vw', opacity:0 });    
+    TweenLite.to($("#ds_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ec"), 1, { position:'absolute', width: '16vw', top: '43vh', left: '30vw', opacity:1  });        
+    TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '16vw', top: '43vh', left: '30vw', opacity:0 });    
+    TweenLite.to($("#ec_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#dv"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '49vw', opacity:1  });  
+    TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '49vw', opacity:0 });    
+    TweenLite.to($("#dv_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+  
+}
+
+
+
+function OpenEC(){
+    
+    TweenLite.to($("#ec"), 1, { position:'absolute', width: '36vw', top: '9vh', left: '30vw', opacity:0  });        
+    TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '36vw', top: '9vh', left: '30vw', opacity:1 });    
+    TweenLite.fromTo($("#ec_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });   
+    
+    TweenLite.to($("#se"), 1, { position:'absolute', width: '16vw', top: '10vh', left: '11vw', opacity:1 }); 
+    TweenLite.to($("#se_b"), 1, { position:'absolute', width: '16vw', top: '10vh', left: '11vw', opacity:0 });    
+    TweenLite.to($("#se_t"), 0.5, { opacity:0, zIndex:-1, scale:0 }); 
+           
+    TweenLite.to($("#ep"), 1, { position:'absolute', width: '16vw', top: '-4vh', left: '60vw', opacity:1 });        
+    TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '16vw', top: '-4vh', left: '60vw', opacity:0 });    
+    TweenLite.to($("#ep_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+    
+    TweenLite.to($("#cp"), 1, { position:'absolute', width: '16vw', top: '-14vh', left: '23vw', opacity:1 });    
+    TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '16vw', top: '-14vh', left: '23vw', opacity:0 });    
+    TweenLite.to($("#cn_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ds"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '15vw', opacity:1 }); 
+    TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '15vw', opacity:0 });    
+    TweenLite.to($("#ds_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });       
+
+    TweenLite.to($("#dv"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '63vw', opacity:1  });  
+    TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '16vw', top: '48vh', left: '63vw', opacity:0 });    
+    TweenLite.to($("#dv_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+  
+}
+
+
+
+function OpenDV(){
+
+    TweenLite.to($("#dv"), 1, { position:'absolute', width: '36vw', top: '12vh', left: '42vw', opacity:0  });  
+    TweenLite.to($("#dv_b"), 1, { position:'absolute', width: '36vw', top: '12vh', left: '42vw', opacity:1 });    
+    TweenLite.fromTo($("#dv_t"), 1, {scale:0.5}, { opacity:1, zIndex:999999, scale:1 });   
+    
+    TweenLite.to($("#ec"), 1, { position:'absolute', width: '16vw', top: '23vh', left: '26vw', opacity:1  });        
+    TweenLite.to($("#ec_b"), 1, { position:'absolute', width: '16vw', top: '23vh', left: '26vw', opacity:0 });    
+    TweenLite.to($("#ec_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+    
+    TweenLite.to($("#se"), 1, { position:'absolute', width: '16vw', top: '15vh', left: '2vw', opacity:1 }); 
+    TweenLite.to($("#se_b"), 1, { position:'absolute', width: '16vw', top: '15vh', left: '2vw', opacity:0 });    
+    TweenLite.to($("#se_t"), 0.5, { opacity:0, zIndex:-1, scale:0 }); 
+           
+    TweenLite.to($("#ep"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '35vw', opacity:1 });        
+    TweenLite.to($("#ep_b"), 1, { position:'absolute', width: '16vw', top: '-10vh', left: '35vw', opacity:0 });    
+    TweenLite.to($("#ep_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+    
+    TweenLite.to($("#cp"), 1, { position:'absolute', width: '16vw', top: '-2vh', left: '16vw', opacity:1 });    
+    TweenLite.to($("#cn_b"), 1, { position:'absolute', width: '16vw', top: '-2vh', left: '16vw', opacity:0 });    
+    TweenLite.to($("#cn_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });    
+
+    TweenLite.to($("#ds"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '12vw', opacity:1 }); 
+    TweenLite.to($("#ds_b"), 1, { position:'absolute', width: '16vw', top: '44vh', left: '12vw', opacity:0 });    
+    TweenLite.to($("#ds_t"), 0.5, { opacity:0, zIndex:-1, scale:0 });       
+
+  
+  
+}
+
+
+
+</script>
 
 </section>
