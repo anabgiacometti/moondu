@@ -96,3 +96,45 @@ class ContactForm(FlaskForm):
     senderPassword =  PasswordField('Senha')
     senderProvider =  StringField('Provedor')
 
+class MethodForm(FlaskForm):
+    title_1 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_1 = FileField()
+    text_1 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )
+
+    title_2 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_2 = FileField()
+    text_2 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )
+
+    title_3 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_3 = FileField()
+    text_3 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )
+
+    title_4 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_4 = FileField()
+    text_4 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )
+
+    title_5 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_5 = FileField()
+    text_5 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )
+
+    title_6 = StringField('Título', validators=[InputRequired('Preencha este campo.')])
+    image_6 = FileField()
+    text_6 = TinyMceField(
+        'Texto',
+        tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
+    )

@@ -5,8 +5,8 @@ import random, string
 from base64 import b64encode
 
 
-from .models import User, SlidersHome, AboutUs, Client, ClientPhrases, News, Contact
-from .forms import LoginForm, HomeForm, AboutUsForm, ClientForm, ClientPhraseForm, NewsForm, ContactForm
+from .models import User, SlidersHome, AboutUs, Client, ClientPhrases, News, Contact, Methods
+from .forms import LoginForm, HomeForm, AboutUsForm, ClientForm, ClientPhraseForm, NewsForm, ContactForm, MethodForm
 
 @app.route('/admin', methods=["GET", "POST"])
 def Login():   
@@ -480,4 +480,164 @@ def AdminContact():
     
 
 
+@app.route('/admin/method', methods=["POST", "GET"])
+def AdminMethod():
+    form = MethodForm()
+
+    if request.method == "POST" and form.validate_on_submit():
+        
+        m1 = Methods.query.filter(Methods.id == 1).first()
+        m2 = Methods.query.filter(Methods.id == 2).first()
+        m3 = Methods.query.filter(Methods.id == 3).first()
+        m4 = Methods.query.filter(Methods.id == 4).first()
+        m5 = Methods.query.filter(Methods.id == 5).first()
+        m6 = Methods.query.filter(Methods.id == 6).first()
+
+        if m1 == None:
+            m1 = Methods(
+                id = 1, 
+                title = form.title_1.data, 
+                text = form.text_1.data, 
+                image = form.image_1.data.read()
+            )
+
+            db.session.add(m1)
+            db.session.commit()
+
+        else:
+            m1.title = form.title_1.data
+            m1.text = form.text_1.data
+            if form.image_1.data.filename:
+                m1.image = form.image_1.data.read()
+            db.session.commit()
+
+        if m2 == None:
+            m2 = Methods(
+                id = 2, 
+                title = form.title_2.data, 
+                text = form.text_2.data, 
+                image = form.image_2.data.read()
+            )
+
+            db.session.add(m2)
+            db.session.commit()
+        
+        else:
+            m2.title = form.title_2.data
+            m2.text = form.text_2.data
+            if form.image_2.data.filename:
+                m2.image = form.image_2.data.read()
+            db.session.commit()
+
+        if m3 == None:
+            m3 = Methods(
+                id = 3, 
+                title = form.title_3.data, 
+                text = form.text_3.data, 
+                image = form.image_3.data.read()
+            )
+
+            db.session.add(m3)
+            db.session.commit()
+
+        else:
+            m3.title = form.title_3.data
+            m3.text = form.text_3.data
+            if form.image_3.data.filename:
+                m3.image = form.image_3.data.read()
+            db.session.commit()
+
+        if m4 == None:
+            m4 = Methods(
+                id = 4, 
+                title = form.title_4.data, 
+                text = form.text_4.data, 
+                image = form.image_4.data.read()
+            )
+
+            db.session.add(m4)
+            db.session.commit()
+
+        else:
+            m4.title = form.title_4.data
+            m4.text = form.text_4.data
+            if form.image_4.data.filename:
+                m4.image = form.image_4.data.read()
+            db.session.commit()
+
+        if m5 == None:
+            m5 = Methods(
+                id = 5, 
+                title = form.title_5.data, 
+                text = form.text_5.data, 
+                image = form.image_5.data.read()
+            )
+
+            db.session.add(m5)
+            db.session.commit()
+        
+        else:
+            m5.title = form.title_5.data
+            m5.text = form.text_5.data
+            if form.image_5.data.filename:
+                m5.image = form.image_5.data.read()
+            db.session.commit()
+
+        if m6 == None:
+            m6 = Methods(
+                id = 6, 
+                title = form.title_6.data, 
+                text = form.text_6.data, 
+                image = form.image_6.data.read()
+            )
+
+            db.session.add(m6)
+            db.session.commit()
+
+        else:
+            m6.title = form.title_6.data
+            m6.text = form.text_6.data
+            if form.image_6.data.filename:
+                m6.image = form.image_6.data.read()
+            db.session.commit()
+
+    else: 
+        m1 = Methods.query.filter(Methods.id == 1).first()
+        m2 = Methods.query.filter(Methods.id == 2).first()
+        m3 = Methods.query.filter(Methods.id == 3).first()
+        m4 = Methods.query.filter(Methods.id == 4).first()
+        m5 = Methods.query.filter(Methods.id == 5).first()
+        m6 = Methods.query.filter(Methods.id == 6).first()
+
+        if(m1 != None):
+            form.text_1.data = m1.text
+            form.title_1.data = m1.title
+            form.image_1.data = m1.image
+
+        if(m2 != None):
+            form.text_2.data = m2.text
+            form.title_2.data = m2.title
+            form.image_2.data = m2.image
+
+        if(m3 != None):
+            form.text_3.data = m3.text
+            form.title_3.data = m3.title
+            form.image_3.data = m3.image
+        
+        if(m4 != None):
+            form.text_4.data = m4.text
+            form.title_4.data = m4.title
+            form.image_4.data = m4.image
+
+        if(m5 != None):
+            form.text_5.data = m5.text
+            form.title_5.data = m5.title
+            form.image_5.data = m5.image
+
+        if(m6 != None):
+            form.text_6.data = m6.text
+            form.title_6.data = m6.title
+            form.image_6.data = m6.image
+            
+    return render_template('admin/method.html', form=form)
 

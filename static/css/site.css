@@ -149,13 +149,28 @@ a.navbar-link:hover {
     cursor: pointer;
 }
 
-.section{
+.section {
     background-size: 100vw 100vh !important;
 }
 
-::placeholder{
-    color: white !important; 
-    font-weight:600 !important
+#toast-container {
+    position: absolute;
+    bottom: 15vh;
+    left: 15vw;
+}
+
+.toast {
+    padding: 1rem 2rem
+}
+
+::placeholder {
+    color: white !important;
+    font-weight: 600 !important
+}
+
+.border-danger::placeholder {
+    color: #dc3545!important;
+    font-weight: 600 !important
 }
 
 .page-active>.page-text {
@@ -265,7 +280,22 @@ p {
     font-size: 1.15em;
     padding: .3em;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 1.5em
+    margin-top: 1.5em;
+    transition: 1s
+}
+
+.button-primary:hover,
+.button-primary:focus {
+    animation: shadow-pulse 1s;
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 255, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
 }
 
 i {
@@ -316,8 +346,27 @@ i {
     z-index: 9999999;
 }
 
+.list-brands li {
+    padding: .4rem .2rem;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: .5rem
+}
+
+.list-brands li:hover,
+.list-brands a:hover .list-brands li {
+    padding: .4rem .2rem;
+    background-color: rgba(0, 0, 0, .1);
+    transition: 0.5s;
+    animation: shadow-pulse 1s;
+}
+
+.list-brands li a>i {
+    margin: 0 !important
+}
+
 .list-brands li a {
-    padding: 0.5rem 1rem;
     color: white
 }
 
@@ -526,7 +575,6 @@ i {
     box-sizing: border-box;
     border: 2px solid #212121;
 }
-
 
 @media screen and (max-width: 767px) {
     nav ul {

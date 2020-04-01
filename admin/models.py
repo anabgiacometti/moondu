@@ -53,3 +53,10 @@ class Contact(db.Model):
     blog = db.Column(db.String())
     areaDoCliente = db.Column(db.String())
     
+
+class Methods(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.LargeBinary())
+    title = db.Column(db.String(100))
+    text = db.Column(db.Text())
+    

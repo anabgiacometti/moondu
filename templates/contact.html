@@ -10,39 +10,41 @@
                     [ Venha tomar um café conosco ... ]
                 </h1>
 
-                <form>
+                <form method="POST" id="contact-form" action="{{url_for('FormContact')}}">
+
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Nome: ">
+                        <input type="text" name="name" class="form-control validate" required style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Nome: ">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Telefone: ">
+                        <input type="text" name="phone" class="form-control validate" required style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Telefone: ">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="E-mail: ">
+                        <input type="text" name="email" class="form-control validate" required style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="E-mail: ">
                     </div>
 
                     <div class="form-group">
-                        <textarea rows=3 class="form-control" style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Mensagem: "></textarea>
+                        <textarea rows=3 name="message" class="form-control validate" required style="background-color:rgba(255,255,255,0.5); border:none; color:white; font-weight:600" placeholder="Mensagem: "></textarea>
                     </div>
 
-                    <button type="button" style="z-index:999999999;float:right; margin-top:0" class="button-primary">Enviar
+                    <button type="button" id="contact-form-button" style="z-index:999999999;float:right; margin-top:0" class="button-primary">Enviar
                     <img style="width:30px;" class="ml-3" src="{{ url_for('static', filename='img/logoinvertido.png') }}"></button>
 
                 </form>
 
             </div>
 
-            <div style="width:40vw;position: absolute;right: 7vh;top: -2vw;"">
+            <div style="width:40vw;position: absolute;right: 7vh;top: -2vw;" ">
                 {% include 'svg/contact.html' %}
 
-                <div class="px-3 mt-4">
-                    <p class="mb-2" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-phone" style="width: 30px;"></i> <span>{{contact.phone_1}}</span> <span class="ml-2">{{contact.phone_2}}</span> </p>
-                    <p class="mb-2" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-envelope" style="width: 30px;"></i> {{contact.email}} </p>
-                    <p class="mb-1 pb-0" style="font-weight:200;font-weight:200; font-size:1.4rem"> <i class="fas fa-map-marker-alt" style="width: 30px;"></i> {{contact.address_1}} </p>
-                    <p class="m-0 p-0" style="font-weight:200;;font-weight:200; font-size:1.4rem"> <i class="fas fa-map-marker-alt" style="width: 30px;opacity:0"></i> {{contact.address_2}} </p>
+                <div class="px-3 mt-4 ">
+                    <p class="mb-2 " style="font-weight:200;font-weight:200; font-size:1.4rem "> <i class="fas fa-phone " style="width: 30px; "></i> <span>{{contact.phone_1}}</span> <span class="ml-2 ">{{contact.phone_2}}</span> </p>
+                    <p class="mb-2 " style="font-weight:200;font-weight:200; font-size:1.4rem "> <i class="fas fa-envelope " style="width: 30px; "></i> {{contact.email}} </p>
+                    <p class="mb-1 pb-0 " style="font-weight:200;font-weight:200; font-size:1.4rem "> <i class="fas fa-map-marker-alt " style="width: 30px; "></i> {{contact.address_1}} </p>
+                    <p class="m-0 p-0 " style="font-weight:200;;font-weight:200; font-size:1.4rem "> <i class="fas fa-map-marker-alt " style="width: 30px;opacity:0 "></i> {{contact.address_2}} </p>
                 </div>
 
             </div>
@@ -51,5 +53,23 @@
         </div>
 
     </div>
+
+    <div id="form-response "></div>
+
+    <script>
+        
+    $('#contact-form-button').click(function(event) {
+        // Prevent redirection with AJAX for contact form
+        var form = $('#contact-form');
+        var form_id = 'contact-form';
+        var url = form.prop('action');
+        var type = form.prop('method');
+        var formData = getContactFormData(form_id);
+
+        // submit form via AJAX
+        send_form(form, form_id, url, type, modular_ajax, formData);
+    });
+
+    </script>
 
 </section>
