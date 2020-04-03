@@ -138,3 +138,8 @@ class MethodForm(FlaskForm):
         'Texto',
         tinymce_options={'toolbar': 'bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | link | code', 'height': "150"}
     )
+
+class UserForm(FlaskForm):
+    name =  StringField('Nome', validators=[InputRequired('Preencha este campo.')])
+    username =  StringField('Usernanme', validators=[InputRequired('Preencha este campo.')])
+    email =  EmailField('E-mail', validators=[InputRequired('Preencha este campo.')])

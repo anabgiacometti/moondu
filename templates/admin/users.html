@@ -1,0 +1,75 @@
+{% extends 'admin/base.html' %}
+
+<!-- Titulo -->
+{% block title %} Administração Usuários {% endblock %}
+
+<!-- Conteudo -->
+
+{% block desc %} Usuários {% endblock %} {% block content %} {% from "admin/render.html" import ipt_common, ipt_chk, ipt_textarea %}
+
+<div class="uk-section uk-padding-remove-top uk-section-muted" uk-height-viewport="expand: true">
+    <div class="uk-container uk-container-small uk-margin-top">
+
+        <ul uk-tab>
+            <li><a href="#">Listagem</a></li>
+            <li class="{{'uk-active' if cad}}"><a href="#">Novo Usuário</a></li>
+        </ul>
+
+        <ul class="uk-switcher uk-margin">
+
+            <li>
+                <table class="uk-table uk-table-divider">
+                    <tbody>
+
+                        {% for u in users %}
+
+                        <tr>
+                            <td>{{u.username}}</td>
+                            <td>{{u.email}}</td>
+                            <td class="uk-text-right"><i class="uk-icon-link" style="cursor: pointer;" uk-icon="trash" onclick="Delete({{u.id}})"></i></td>
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </li>
+
+            <li>
+
+                <form method="POST" action="{{url_for('AdminUsers')}}">
+
+                    {{form.csrf_token}}
+
+                    <div class="uk-margin">
+                        {{ipt_common(form.name)}}
+                    </div>
+
+                    <div uk-grid>
+                        <div class="uk-width-1-2">
+                            {{ipt_common(form.username)}}
+                        </div>
+
+                        <div class="uk-width-1-2">
+                            {{ipt_common(form.email)}}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="uk-button-primary uk-button uk-margin">Salvar</button>
+                </form>
+
+            </li>
+    </div>
+</div>
+
+<script>
+    function Delete(id) {
+
+        UIkit.modal.confirm('Posso deletar este usuário?').then(function() {
+            window.location.href = "/delete-user/" + id
+        }, function() {});
+    }
+</script>
+
+
+{% endblock %}

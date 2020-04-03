@@ -77,6 +77,26 @@
                 <label class="uk-navbar-item uk-logo" style="color:white">Moondu Soluções - {% block desc %} {% endblock %}
                 </label>
             </div>
+
+            {% if not Login %}
+            <div class="uk-navbar-right uk-margin-right">
+
+                <a href="#"><i uk-icon="menu"></i></a>
+                <div uk-dropdown>
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="{{url_for('Dashboard')}}">DASHBOARD </a></li>
+                        <li><a href="{{url_for('AdminUsers')}}">USUÁRIOS </a></li>
+                        <li><a href="{{url_for('AdminHome')}}">HOME </a></li>
+                        <li><a href="{{url_for('AdminAbout')}}">SOBRE NÓS </a></li>
+                        <li><a href="{{url_for('AdminClients')}}">CLIENTES </a></li>
+                        <li><a href="{{url_for('AdminMethod')}}">METODOLOGIA </a></li>
+                        <li><a href="{{url_for('AdminNews')}}">NEWS </a></li>
+                        <li><a href="{{url_for('AdminContact')}}">CONTATO </a></li>
+                        <li><a href="{{url_for('Logout')}}">LOGOUT </a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
         </nav>
     </nav>
 

@@ -1,8 +1,9 @@
-from app import app, db
+from app import app, db, mail
 from flask import render_template, redirect, url_for, request, abort, session, jsonify, make_response
 from admin.models import SlidersHome, AboutUs, Client, ClientPhrases, News, Contact, Methods
 from base64 import b64encode
 from flask_wtf.csrf import CSRFProtect
+from flask_mail import Message
 
 csrf = CSRFProtect(app)
 
@@ -38,11 +39,25 @@ def Home():
 
     return render_template('home.html', sliders_home=sliders, about=about, clients=clients, clients_text=clients_text, news=news, contact=contact, methods=methods)
 
+
+
+
+
 @app.route('/form', methods=["POST"])
 def FormContact():   
 
      if request.method == 'POST':
+                
+        mail_msg = Message("Moondu: Novo contato", recipients=['anabgiacometti@gmail.com', 'contato@moondu.com.br'])
 
+        name = request.form['name']
+        phone = request.form['phone']
+        email = request.form['email']
+        message = request.form['message']
+
+        mail_msg.html = render_template('email/contato.html', name = name, phone = phone, email = email, message = message)
+        mail.send(mail_msg)
+        
         msg = "Sua mensagem foi enviada! Logo entraremos em contato :)"
         category = "success"
 

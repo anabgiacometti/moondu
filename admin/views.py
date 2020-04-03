@@ -6,7 +6,7 @@ from base64 import b64encode
 
 
 from .models import User, SlidersHome, AboutUs, Client, ClientPhrases, News, Contact, Methods
-from .forms import LoginForm, HomeForm, AboutUsForm, ClientForm, ClientPhraseForm, NewsForm, ContactForm, MethodForm
+from .forms import LoginForm, HomeForm, AboutUsForm, ClientForm, ClientPhraseForm, NewsForm, ContactForm, MethodForm, UserForm
 
 @app.route('/admin', methods=["GET", "POST"])
 def Login():   
@@ -31,7 +31,7 @@ def Login():
             session['username'] = user.username
             return redirect(url_for('Dashboard'))
 
-    return render_template('admin/login.html', form=form, message_pass=message)
+    return render_template('admin/login.html', form=form, message_pass=message, Login=True)
 
 
 
@@ -55,9 +55,15 @@ def randomString(stringLength=4):
     return ''.join(random.choice(letters) for i in range(stringLength))
 
 
-def sendMail(name, username, senha, email):
-    msg = Message("Attendance: Recuperação de Senha", recipients=[email])
-    msg.html = render_template('email/recoverpass.html', name = name, username = username, senha = senha)
+def sendMail(title, name, username, senha, email):
+    msg = Message("Moondu: {}".format(title), recipients=[email])
+
+    if title == "Recuperação de senha": 
+        template = "email/recoverpass.html"
+    else:
+        template = "email/newuser.html"
+
+    msg.html = render_template(template, name = name, username = username, senha = senha)
     mail.send(msg)
 
 
@@ -73,7 +79,7 @@ def RecoverPass(username):
         name = user.username
         user.password = "{}{}".format(name, random)
         db.session.commit()
-        sendMail(user.name, user.username, user.password, user.email)
+        sendMail("Recuperação de senha", user.name, user.username, user.password, user.email)
         session['message'] = "Uma nova senha foi encaminhada à seu e-mail."
 
     return redirect(url_for('Login'))
@@ -641,3 +647,39 @@ def AdminMethod():
             
     return render_template('admin/method.html', form=form)
 
+@app.route('/admin/users', methods=['GET', 'POST'])
+def AdminUsers():
+    form = UserForm()
+    cad = False
+
+    if request.method == "POST" and form.validate_on_submit():
+        user_duplicated = User.query.filter(User.username == form.username.data).first()
+        
+        if user_duplicated: 
+            form.username.errors.append("Já existe um cadastro para este username")
+            cad = True
+        
+        else: 
+            senha = "{}{}".format(form.name.data.split(' ')[0], randomString())
+            user = User(
+                name = form.name.data, 
+                username = form.username.data, 
+                email = form.email.data, 
+                password = senha
+            )
+            db.session.add(user)
+            db.session.commit()        
+            sendMail("Bem vindo!", user.name, user.username, senha, user.email)
+
+    users = User.query.all()
+    return render_template("admin/users.html", users=users, form=form, cad=cad)
+
+
+
+@app.route('/delete-user/<id>')
+def DeleteUser(id):
+    user = User.query.filter(User.id == id).first()
+    if user:
+        db.session.delete(user)
+        db.session.commit()
+    return redirect(url_for('AdminUsers'))

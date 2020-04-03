@@ -5,7 +5,7 @@
 
 <!-- Conteudo -->
 
-{% block content %}
+{% block desc %} Bem vindo! :) {% endblock %} {% block content %}
 
 <div class="uk-section uk-margin-top-remove uk-section-muted" uk-height-viewport="expand: true">
     <div class="uk-container uk-container-large">
@@ -44,6 +44,19 @@
                     <h3 class="uk-card-title uk-text-center uk-text-light" style="color:#fff">CONTATO</h3>
                 </a>
             </div>
+        </div>
+
+        <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+            <div>
+                <a href="{{url_for('AdminUsers')}}" class="uk-card uk-card-default card-bg uk-card-body">
+                    <h3 class="uk-card-title uk-text-center uk-text-light" style="color:#fff">USUÁRIOS</h3>
+                </a>
+            </div>
+            <!-- <div>
+                <a href="{{url_for('AdminContact')}}" class="uk-card uk-card-default card-bg uk-card-body">
+                    <h3 class="uk-card-title uk-text-center uk-text-light" style="color:#fff">CONTATO</h3>
+                </a>
+            </div> -->
         </div>
 
     </div>
