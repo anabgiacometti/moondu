@@ -1,16 +1,16 @@
-<section class="vertical-scrolling" style="background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
+<section class="vertical-scrolling" style="background-size:100vw 100vh; background-image:url({{ url_for('static', filename='img/bg_degrade.jpg') }})">
 
     <div class="content animated">
 
         <div class="slider animated">
 
-            <div class="content-text">
+            <div class="content-text desktop">
 
                 <img src="data:;base64,{{methods[0].image}}" id="cp" style="z-index:99; cursor:pointer" onclick="OpenCP()">
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="cn_b">
 
-                <div id="cn_t" style="position:absolute;width: 28vw;top: -2vh;left: 8vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="cn_t" style="position:absolute;width: 28vw;top: -2vh;left: 8vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[0].title}}</h1>
                         <span style="color:white;">
@@ -23,7 +23,7 @@
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="ds_b">
 
-                <div id="ds_t" style="position:absolute;width: 28vw;top: -10vh;left: 32vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="ds_t" style="position:absolute;width: 28vw;top: -10vh;left: 32vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[1].title}}</h1>
                         <span style="color:white;">
@@ -36,7 +36,7 @@
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="ep_b">
 
-                <div id="ep_t" style="position:absolute;width: 28vw;top: -10vh;left: 41vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="ep_t" style="position:absolute;width: 28vw;top: -10vh;left: 41vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[2].title}}</h1>
                         <span style="color:white;">
@@ -49,7 +49,7 @@
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="se_b">
 
-                <div id="se_t" style="position:absolute;width: 28vw;top: 10vh;left: 1vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="se_t" style="position:absolute;width: 28vw;top: 10vh;left: 1vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[3].title}}</h1>
                         <span style="color:white;">
@@ -62,7 +62,7 @@
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="ec_b">
 
-                <div id="ec_t" style="position:absolute;width: 28vw;top: 9vh;left: 34vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="ec_t" style="position:absolute;width: 28vw;top: 9vh;left: 34vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[4].title}}</h1>
                         <span style="color:white;">
@@ -75,7 +75,7 @@
 
                 <img src="{{url_for('static', filename='img/borda.png')}}" id="dv_b">
 
-                <div id="dv_t" style="position:absolute;width: 28vw;top: 12vh;left: 46vw;opacity:0;text-align:center;height: 65vh;">
+                <div id="dv_t" style="position:absolute;width: 28vw;top: 12vh;left: 46vw;opacity:0;text-align:center;height: 32vw;">
                     <div style="width: 28vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                         <h1 style="font-size: 2rem; font-weight: 800;" class="mb-4">{{methods[5].title}}</h1>
                         <span style="color:white;">
@@ -87,6 +87,82 @@
 
             </div>
 
+            <div class="content-text mobile slider_methods">
+
+                <div>
+                    <img src="data:;base64,{{methods[0].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[0].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[0].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <img src="data:;base64,{{methods[1].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[1].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[1].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <img src="data:;base64,{{methods[2].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[2].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[2].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <img src="data:;base64,{{methods[3].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[3].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[3].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <img src="data:;base64,{{methods[4].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[4].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[4].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="data:;base64,{{methods[5].image}}" style="z-index:99;width: 45vw;cursor:pointer;margin-left: 20%;">
+
+                    <div style="margin-top:5vh; width:65vw">
+                        <h1 style="font-size: 1.2rem; font-weight: 800;" class="mb-4">{{methods[5].title}}</h1>
+                        <span style="color:white;">
+                            {{methods[5].text | safe}}
+                    </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
 
     </div>
@@ -95,6 +171,12 @@
         var open = "";
 
         $(document).ready(function() {
+
+
+            $('.slider_methods').slick({
+                dots: true
+            });
+
             TweenLite.set($("#cp"), {
                 position: 'absolute',
                 width: '21vw',
@@ -285,7 +367,7 @@
             });
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:1,
+                zIndex: 1,
                 position: 'absolute',
                 width: '16vw',
                 top: '22vh',
@@ -413,7 +495,7 @@
             });
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:1,
+                zIndex: 1,
                 position: 'absolute',
                 width: '16vw',
                 top: '32vh',
@@ -540,7 +622,7 @@
             });
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:1,
+                zIndex: 1,
                 position: 'absolute',
                 width: '16vw',
                 top: '32vh',
@@ -670,7 +752,7 @@
             });
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:1,
+                zIndex: 1,
                 position: 'absolute',
                 width: '16vw',
                 top: '43vh',
@@ -718,7 +800,7 @@
         function OpenEC() {
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:0,
+                zIndex: 0,
                 position: 'absolute',
                 width: '41.5vw',
                 top: '-12vh',
@@ -870,7 +952,7 @@
             });
 
             TweenLite.to($("#ec"), 1, {
-                zIndex:1,
+                zIndex: 1,
                 position: 'absolute',
                 width: '16vw',
                 top: '23vh',

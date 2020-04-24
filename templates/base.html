@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -30,6 +32,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
     <script src="{{ url_for('static', filename='scripts/site.js') }}"></script>
 
@@ -51,8 +54,8 @@
         <p onclick="ChangePage(this, 1)"><a href="#">HOME</a></p>
         <p onclick="ChangePage(this, 2)"><a href="#">METODOLOGIA</a></p>
         <p onclick="ChangePage(this, 3)"><a href="#">CLIENTES</a></p>
-        <p onclick="ChangePage(this, 4)"><a href="#">EQUIPE</a></p>
-        <p onclick="ChangePage(this, 5)"><a href="#">BLOG</a></p>
+        <p onclick="ChangePage(this, 4)"><a href="#">SOBRE NÓS</a></p>
+        <p onclick="ChangePage(this, 5)"><a href="#">NOTÍCIAS</a></p>
         <p onclick="ChangePage(this, 6)"><a href="#">CONTATO</a></p>
         <p onclick="ChangePage(this, 1)"><a href="#">ÁREA DO CLIENTE</a></p>
         <p>
@@ -119,9 +122,144 @@
             $('#menu').find('li').eq(index - 1).addClass("page-inactive")
             $('#menu').find('li').eq(index - 1).removeClass("page-active")
 
+            TweenLite.set($("#cp"), {
+                position: 'absolute',
+                width: '21vw',
+                top: '3vh',
+                left: '9vw',
+                opacity: 1
+            });
+            TweenLite.set($("#cn_b"), {
+                position: 'absolute',
+                width: '21vw',
+                top: '3vh',
+                left: '9vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#cn_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
+            TweenLite.set($("#ds"), {
+                position: 'absolute',
+                width: '16vw',
+                top: '-10vh',
+                left: '27vw',
+                opacity: 1
+            });
+            TweenLite.set($("#ds_b"), {
+                position: 'absolute',
+                width: '16vw',
+                top: '-10vh',
+                left: '27vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#ds_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
+            TweenLite.set($("#ep"), {
+                position: 'absolute',
+                width: '22vw',
+                top: '0vh',
+                left: '41vw',
+                opacity: 1
+            });
+            TweenLite.set($("#ep_b"), {
+                position: 'absolute',
+                width: '22vw',
+                top: '0vh',
+                left: '41vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#ep_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
+            TweenLite.set($("#se"), {
+                position: 'absolute',
+                width: '17vw',
+                top: '44vh',
+                left: '10vw'
+            });
+            TweenLite.set($("#se_b"), {
+                position: 'absolute',
+                width: '17vw',
+                top: '44vh',
+                left: '10vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#se_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
+            TweenLite.set($("#ec"), {
+                position: 'absolute',
+                width: '17vw',
+                top: '22vh',
+                left: '26vw',
+                opacity: 1
+            });
+            TweenLite.set($("#ec_b"), {
+                position: 'absolute',
+                left: '26vw',
+                top: '31vh',
+                width: '14.5vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#ec_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
+            TweenLite.set($("#dv"), {
+                position: 'absolute',
+                width: '18vw',
+                top: '41vh',
+                left: '42vw',
+                opacity: 1
+            });
+            TweenLite.set($("#dv_b"), {
+                position: 'absolute',
+                width: '18vw',
+                top: '41vh',
+                left: '42vw',
+                opacity: 0,
+                zIndex: -1
+            });
+            TweenLite.set($("#dv_t"), {
+                opacity: 0,
+                zIndex: -1
+            });
+
             if (nextIndex == 4) {
                 document.getElementById("b1").beginElement();
                 document.getElementById("b2").beginElement()
+            }
+
+            if (nextIndex == 6) {
+
+                TweenLite.staggerFromTo($('.contact_right'), 1, {
+                    x: '1000px',
+                }, {
+                    x: 0
+                }, 0.5)
+
+                TweenLite.staggerFromTo($('.contact_left'), 1, {
+                    x: '-1000px',
+                }, {
+                    x: 0
+                }, 0.5)
+
             }
 
             if (toggle) {
@@ -140,21 +278,24 @@
                 })
 
                 TweenLite.fromTo(['.navbar-logo.white'], .5, {
-                    opacity: 0
+                    opacity: 0,
+                    zIndex: -1
                 }, {
                     opacity: 1
                 })
                 TweenLite.fromTo(['.navbar-logo.green'], .5, {
                     opacity: 1
                 }, {
-                    opacity: 0
+                    opacity: 0,
+                    zIndex: -1
                 })
 
                 var tl = new TimelineMax();
                 tl.fromTo($("#menu-links"), .5, {
                     opacity: 1
                 }, {
-                    opacity: 0
+                    opacity: 0,
+                    zIndex: -1
                 });
                 tl.to($("#menu-links"), .5, {
                     display: "none"
